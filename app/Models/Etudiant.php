@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Etudiant extends Model
 {
     use HasFactory;
+    public function getFiliere()
+    {
+        return $this->hasOne(Filiere::class, 'filiere_id', 'id');
+    }
 }

@@ -32,9 +32,8 @@
    <div class="mb-3">
     Filieres :
    <select name="filiere_id" >
-    <option value="1" {{ $etudiant->filiere_id === '1' ? 'selected' : '' }}>informatique</option>
-    <option value="2"  {{ $etudiant->filiere_id === '2' ? 'selected' : '' }}>Management</option>
     @foreach ($filieres as $item)
+        <option value="{{$etudiant->filiere_id === $item->id ? 'selected' : '' }}">{{$item->nom}}</option>
         <option value="{{$item->id}}">{{$item->nom}}</option>
     @endforeach
    </select>

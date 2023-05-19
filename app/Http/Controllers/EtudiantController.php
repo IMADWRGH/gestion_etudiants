@@ -45,7 +45,9 @@ class EtudiantController extends Controller
 
     public function edit(string $id)
     {
-        return view('etudiants.edit', ['etudiant' => Etudiant::find($id)]);
+        $filieres = Filiere::all();
+        $etudiant = Etudiant::find($id);
+        return view('etudiants.edit', compact('etudiant', 'filieres'));
     }
 
     public function update(Request $request, string $id)
