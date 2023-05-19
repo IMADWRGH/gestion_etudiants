@@ -10,6 +10,17 @@
 <body>
     <h1 align="center"  class="m-4">Ajouter un étudiant</h1>
     <div class="container min-vh-80 d-flex justify-content-center align-items-center">
+      @if (session('status'))
+          <div class="alert alert-success" role="alert">
+            <strong>{{session('status')}}</strong>
+          </div>
+      @endif
+     <ul>
+        @foreach ($errors->all() as $error)
+            <li class="alert alert-danger">{{$error}}</li>
+        @endforeach
+      </ul>
+    
 <form action="/etudiants" method="post">
      @csrf
      @method('post')
@@ -33,11 +44,9 @@
     Filieres :
    <select name="filiere_id" >
     <option selected disabled >Select Filiere</option>
-    <option value="1">informatique</option>
-    <option value="2">Management</option>
-    {{-- @foreach ($filieres as $item)
-        <option >{{$item->nom}}</option>
-    @endforeach --}}
+    @foreach ($filieres as $item)
+        <option  value="{{$item->id}}">{{$item->nom}}</option>
+    @endforeach
    </select>
   </div>
   <input type="submit" class="btn btn-primary m-2"value="Envoyer">

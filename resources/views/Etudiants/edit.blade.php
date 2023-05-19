@@ -10,7 +10,7 @@
 <body>
     <h1 align="center"  class="m-4">Modifier les renseignements sur les étudiants</h1>
     <div class="container min-vh-80 d-flex justify-content-center align-items-center">
-<form action="etudiant/{{$etudiant->id}}" method="post">
+<form action="/etudiants/{{$etudiant->id}}" method="post">
      @csrf
      @method('PUT')
   <div class="mb-3">
@@ -34,9 +34,9 @@
    <select name="filiere_id" >
     <option value="1" {{ $etudiant->filiere_id === '1' ? 'selected' : '' }}>informatique</option>
     <option value="2"  {{ $etudiant->filiere_id === '2' ? 'selected' : '' }}>Management</option>
-    {{-- @foreach ($filieres as $item)
-        <option >{{$item->nom}}</option>
-    @endforeach --}}
+    @foreach ($filieres as $item)
+        <option value="{{$item->id}}">{{$item->nom}}</option>
+    @endforeach
    </select>
   </div>
   <input type="submit" class="btn btn-primary m-2"value="Envoyer">

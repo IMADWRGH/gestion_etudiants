@@ -11,25 +11,31 @@ class EtudiantController extends Controller
 
     public function index()
     {
-
         $list_etudiants = Etudiant::all();
         return view('etudiants.index', ['etudiants' => $list_etudiants]);
     }
 
     public function create()
     {
-        return view('etudiants.form');
+        $list_filiere = Filiere::all();
+        return view('etudiants.form', ['filieres' => $list_filiere]);
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'sexe' => 'required',
+            'filiere_id' => 'required',
+        ]);
         $etudiant = new Etudiant();
         $etudiant->nom = $request->nom;
         $etudiant->prenom = $request->prenom;
         $etudiant->sexe = $request->sexe;
         $etudiant->filiere_id = $request->filiere_id;
         $etudiant->save();
-        return redirect('/etudiants');
+        return redirect('/etudiants')->with('status', 'L\'etudaint a bien ete ajoute avec success . ');
     }
 
     public function show(string $id)
