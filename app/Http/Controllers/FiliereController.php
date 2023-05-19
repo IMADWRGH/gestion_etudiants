@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class FiliereController extends Controller
 {
-
+    // public function liste()
+    // {
+    //     $filieres = Filiere::all();
+    //     return view('etudiants.form', compact('filieres'));
+    // }
     public function index()
     {
         $list_filieres = Filiere::all();
