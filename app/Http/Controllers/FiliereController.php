@@ -28,7 +28,7 @@ class FiliereController extends Controller
         $filiere = new Filiere();
         $filiere->nom = $request->nom;
         $filiere->save();
-        return redirect('/filieres');
+        return redirect('/filiere');
     }
 
     public function show(string $id)
