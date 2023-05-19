@@ -46,13 +46,13 @@ class FiliereController extends Controller
         $filiere = Filiere::find($id);
         $filiere->nom = $request->nom;
         $filiere->save();
-        return redirect('/filieres');
+        return redirect('/filiere');
     }
 
     public function destroy(string $id)
     {
         $filiere = Filiere::find($id);
         $filiere->delete();
-        return redirect('/filieres');
+        return redirect('/filiere');
     }
 }

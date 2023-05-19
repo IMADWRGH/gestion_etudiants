@@ -28,10 +28,10 @@
          <tr>
             <td>{{$data->id}}</td>
             <td>{{$data->nom}}</td>
-            <td><a href="/etudiants/{{$data->id}}/edit"><i class="bi bi-pen-fill"></i></a></td>
-            <td><a href="/etudiants/{{$data->id}}"><i class="bi bi-eye-fill"></i></a></td>
+            <td><a href="/filiere/{{$data->id}}/edit"><i class="bi bi-pen-fill"></i></a></td>
+            <td><a href="/filiere/{{$data->id}}"><i class="bi bi-eye-fill"></i></a></td>
             <th>
-                <form action="/etudiants/{{$data->id}}" method="post">
+                <form action="/filiere/{{$data->id}}" method="post">
                     @csrf
                     @method('DELETE')
                      <button type="submit" class="rounded-pill btn btn-danger" ><i class="bi bi-trash3"></i></button>
